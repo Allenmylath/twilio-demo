@@ -71,9 +71,6 @@ async def run_bot(websocket_client: WebSocket, stream_sid: str,):
     context = OpenAILLMContext(messages)
     context_aggregator = llm.create_context_aggregator(context)
 
-    # NOTE: Watch out! This will save all the conversation in memory. You can
-    # pass `buffer_size` to get periodic callbacks.
-    audiobuffer = AudioBufferProcessor(user_continuous_stream=not testing)
 
     pipeline = Pipeline(
         [
