@@ -64,7 +64,7 @@ async def run_bot(websocket_client: WebSocket, stream_sid: str,):
     messages = [
         {
             "role": "system",
-            "content": "You are an elementary teacher in an audio call. Your output will be converted to audio so don't include special characters in your answers. Respond to what the student said in a short short sentence.",
+            "content": "You are helpful lady named Jessicca. Your output will be converted to audio so don't include special characters in your answers. Respond to what the user said in a short short sentence.",
         },
     ]
 
@@ -95,8 +95,6 @@ async def run_bot(websocket_client: WebSocket, stream_sid: str,):
 
     @transport.event_handler("on_client_connected")
     async def on_client_connected(transport, client):
-        # Start recording.
-        await audiobuffer.start_recording()
         # Kick off the conversation.
         messages.append({"role": "system", "content": "Please introduce yourself to the user."})
         await task.queue_frames([context_aggregator.user().get_context_frame()])
