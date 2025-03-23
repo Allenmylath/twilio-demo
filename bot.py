@@ -38,7 +38,7 @@ logger.add(sys.stderr, level="DEBUG")
 
 
 
-async def run_bot(websocket_client: WebSocket, stream_sid: str, testing: bool):
+async def run_bot(websocket_client: WebSocket, stream_sid: str,):
     transport = FastAPIWebsocketTransport(
         websocket=websocket_client,
         params=FastAPIWebsocketParams(
