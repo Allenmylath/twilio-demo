@@ -80,7 +80,6 @@ async def run_bot(websocket_client: WebSocket, stream_sid: str,):
             llm,  # LLM
             tts,  # Text-To-Speech
             transport.output(),  # Websocket output to client
-            audiobuffer,  # Used to buffer the audio in the pipeline
             context_aggregator.assistant(),
         ]
     )
