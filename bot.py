@@ -96,7 +96,7 @@ async def run_bot(websocket_client: WebSocket, stream_sid: str,):
     @transport.event_handler("on_client_connected")
     async def on_client_connected(transport, client):
         # Kick off the conversation.
-        messages.append({"role": "system", "content": "Please introduce yourself to the user."})
+        messages.append({"role": "system", "content": "Please introduce yourself as jessica to the user and ask how you can help them."})
         await task.queue_frames([context_aggregator.user().get_context_frame()])
 
     @transport.event_handler("on_client_disconnected")
