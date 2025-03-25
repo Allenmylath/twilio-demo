@@ -57,8 +57,12 @@ async def run_bot(websocket_client: WebSocket, stream_sid: str,):
     stt = DeepgramSTTService(api_key=os.getenv("DEEPGRAM_API_KEY"), audio_passthrough=True)
 
     tts = CartesiaTTSService(
-        api_key=os.getenv("CARTESIA_API_KEY"),
-        voice_id="71a7ad14-091c-4e8e-a314-022ece01c121",  # British Reading Lady
+          api_key=os.getenv("CARTESIA_API_KEY"),
+          voice_id="71a7ad14-091c-4e8e-a314-022ece01c121",  # British Reading Lady
+          params=CartesiaTTSService.InputParams(
+              speed="slow",  # Using the "slow" label as specified in the API
+              emotion=["positivity:high", "curiosity"]  # Adding high positivity and moderate curiosity
+                 )
           )
 
     messages = [
